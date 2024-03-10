@@ -1,66 +1,97 @@
 @font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
-      format("woff2"),
+    font-family: "ColfaxAI";
+    src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2) format("woff2"),
     url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
-  font-weight: normal;
-  font-style: normal;
+    font-weight: normal;
+    font-style: normal;
 }
+
 @font-face {
-  font-family: "ColfaxAI";
-  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
+    font-family: "ColfaxAI";
+    src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
     url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
-  font-weight: bold;
-  font-style: normal;
+    font-weight: bold;
+    font-style: normal;
 }
+
 body,
 input {
-  font-size: 16px;
-  line-height: 24px;
-  color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    color: #353740;
+    font-family: "ColfaxAI", Helvetica, sans-serif;
 }
+
 body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
 }
+
 .icon {
-  width: 34px;
+    width: 34px;
 }
+
 h3 {
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: bold;
-  color: #202123;
-  margin: 16px 0 40px;
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: bold;
+    color: #202123;
+    margin: 16px 0 40px;
 }
+
 form {
-  display: flex;
-  flex-direction: column;
-  width: 320px;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
 }
+
 input[type="text"] {
-  padding: 12px 16px;
-  border: 1px solid #10a37f;
-  border-radius: 4px;
-  margin-bottom: 24px;
+    padding: 12px 16px;
+    border: 1px solid #10a37f;
+    border-radius: 4px;
+    margin-bottom: 24px;
 }
+
 ::placeholder {
-  color: #8e8ea0;
-  opacity: 1;
+    color: #8e8ea0;
+    opacity: 1;
 }
+
 input[type="submit"] {
-  padding: 12px 0;
-  color: #fff;
-  background-color: #10a37f;
-  border: none;
-  border-radius: 4px;
-  text-align: center;
-  cursor: pointer;
+    padding: 12px 0;
+    color: #fff;
+    background-color: #10a37f;
+    border: none;
+    border-radius: 4px;
+    text-align: center;
+    cursor: pointer;
 }
+
 .result {
-  font-weight: bold;
-  margin-top: 40px;
+    font-weight: bold;
+    margin-top: 40px;
+}
+/* Ajoutez ces styles dans votre fichier main.css */
+.enlarged-icon {
+    width: 350px; /* Ajustez la largeur selon vos besoins */
+    height: 350px; /* Ajustez la hauteur selon vos besoins */
+    /* Vous pouvez également utiliser d'autres propriétés CSS pour personnaliser davantage l'icône agrandie */
+}
+
+
+/* Styles pour l'animation de chargement */
+.loader {
+    border: 16px solid #f3f3f3; /* Couleur de fond */
+    border-top: 16px solid #10a37f; /* Couleur du chargement */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }

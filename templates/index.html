@@ -1,21 +1,65 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
-  <title>OpenAI Quickstart</title>
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='dog.png') }}"
-  />
-  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Mbappé média</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='article_resumer_image.png') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}"/>
 </head>
-
 <body>
-  <img src="{{ url_for('static', filename='dog.png') }}" class="icon" />
-  <h3>Name my pet</h3>
-  <form action="/" method="post">
-    <input type="text" name="animal" placeholder="Enter an animal" required />
-    <input type="submit" value="Generate names" />
-  </form>
-  {% if result %}
-  <div class="result">{{ result }}</div>
-  {% endif %}
+<h3 id="title">Résumé d'article</h3>
+
+<!-- Container pour l'icône de chargement et l'image -->
+<div id="imageContainer">
+    <!-- Icône de chargement -->
+    <div id="loading" class="loader" style="display:block;"></div>
+
+    <!-- Image qui remplace l'icône de chargement après le chargement -->
+    {% if not points %}
+        <img id="mainImage" src="{{ url_for('static', filename='article_resumer_image.png') }}"
+             class="icon enlarged-icon"
+             alt="article_resumer_image" style="display:none;"/>
+    {% else %}
+        <img id="mainImage" src="{{ url_for('static', filename='generated_image.jpg') }}" class="icon enlarged-icon"
+             alt="generated_image" style="display:none;"/>
+    {% endif %}
+</div><br>
+
+{% if not result %}
+    <form action="/" method="post" onsubmit="showLoading()">
+
+        <label for="article_url" class="visually-hidden">URL de l'article:</label>
+        <input type="text" name="article_url" id="article_url" placeholder="Entrez l'URL de l'article" required/>
+
+        <input type="submit" value="Obtenir un résumé"/>
+    </form>
+{% else %}
+    <div class="result">
+        <h4>Résumé de l'article :</h4>
+        <ul>
+            {% for point in points %}
+                <li>{{ point }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<script>
+    window.onload = function () {
+        // Cache l'icône de chargement et affiche l'image
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("mainImage").style.display = "block";
+
+    }
+
+    function showLoading() {
+        // Affiche l'icône de chargement lors de l'envoi du formulaire
+        document.getElementById("loading").style.display = "block";
+        document.getElementById("mainImage").style.display = "none";
+        document.getElementById("title").innerText = "Nettoyage en cours";
+
+    }
+</script>
 </body>
+</html>
