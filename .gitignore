@@ -2,6 +2,7 @@
 *.xml
 *.json
 *.jsonl
+*.jpg
 venv/
 *.pyc
 __pycache__/
