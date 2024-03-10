@@ -1,5 +1,7 @@
-spiders/media_scraping/media_scraping/spiders/all_articles.jsonl
-spiders/media_scraping/media_scraping/spiders/article_content.jsonl
+.idea/
+*.xml
+*.json
+*.jsonl
 venv/
 *.pyc
 __pycache__/
