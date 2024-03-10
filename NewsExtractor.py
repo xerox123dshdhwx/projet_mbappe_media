@@ -14,7 +14,6 @@ class NewsExtractor:
 
         # Chemins absolus pour les fichiers de sortie
         output_path = os.path.join(self.project_dir, 'article_content.jsonl')
-        all_articles_path = os.path.join(self.project_dir, 'all_articles.jsonl')
 
         # Exécution du spider Scrapy
         process = subprocess.run([
@@ -24,16 +23,16 @@ class NewsExtractor:
         ], cwd=self.project_dir, shell=True)
 
         # Vérifier le code de retour du subprocess
-        if process.returncode != 0:
+        if process.returncode == 0:#TODO code degeux a revoir, decision de comment stocker les aticle traduit/ optimser l'ago aussi
+            try:
+                with jsonlines.open(output_path) as reader:
+                    for line in reader:
+                        pass
+                    res = line["text"]
+                    print("res:", res)
+                    return ' '.join(res.split())
+            except Exception as e:
+                print(f"Error: {e}")
+        else:
             print("Erreur lors de l'exécution de Scrapy")
             return ''
-
-        try:
-            with jsonlines.open(output_path) as reader:
-                for line in reader:
-                    pass
-                res = line["text"]
-                print("res:", res)
-                return ' '.join(res.split())
-        except Exception as e:
-            print(f"Error: {e}")

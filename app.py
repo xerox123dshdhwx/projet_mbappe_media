@@ -7,7 +7,6 @@ from Media import Media
 
 app = Flask(__name__)
 
-# Configurer la clé API pour OpenAI
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
