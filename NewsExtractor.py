@@ -23,7 +23,8 @@ class NewsExtractor:
         ], cwd=self.project_dir, shell=True)
 
         # Vérifier le code de retour du subprocess
-        if process.returncode == 0:#TODO code degeux a revoir, decision de comment stocker les aticle traduit/ optimser l'ago aussi
+        if process.returncode == 0:
+            # TODO: Refactor the existing code to improve its quality. Decide on how to store cleaned articles and maintain a historical record. Optimize the algorithm as well.
             try:
                 with jsonlines.open(output_path) as reader:
                     for line in reader:

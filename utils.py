@@ -55,8 +55,7 @@ def process_response(response):
 
     # Split result using numbers at the start of a line followed by a dot as delimiters
     points = re.split(r'(?m)^\d+\.', result_summary)
-    points = [point.strip() for point in points if
-              point.strip()]  # Remove any empty strings or just spaces #TODO maybe useles need to double check
+    points = [point.strip() for point in points if point.strip()]  # Remove any empty strings or just spaces #TODO maybe useles need to double check
 
     return result_summary, result_for_dalee, points
 
