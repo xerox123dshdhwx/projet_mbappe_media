@@ -13,7 +13,7 @@ class NewsExtractor:
         article_url = self.media.get_article_to_reduce_url()
 
         # Chemins absolus pour les fichiers de sortie
-        output_path = os.path.join(self.project_dir, 'article_content.jsonl')
+        output_path = 'spiders/media_scraping/media_scraping/article_content.jsonl'
 
         # Exécution du spider Scrapy
         process = subprocess.run([
